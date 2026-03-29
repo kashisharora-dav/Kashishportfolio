@@ -93,8 +93,7 @@ The optimized files will be available in the `dist/` directory.
 This project is optimized for **Netlify**. Follow these steps for deployment:
 1. Connect your GitHub repository to Netlify.
 2. Set the **Build Command** to: `npm run build`
-3. Set the **Publish Directory** to: `dist`
-4. Click **Deploy Site**.
+4. Click **Deploy Site**. to Netlify
 
 ---
 
