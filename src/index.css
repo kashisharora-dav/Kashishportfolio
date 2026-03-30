@@ -243,6 +243,82 @@ section h2::after {
   color: var(--text-muted);
 }
 
+.contact-form {
+  margin: 40px auto 0;
+  max-width: 500px;
+  position: relative;
+}
+
+.contact-input {
+  width: 100%;
+  padding: 16px 24px;
+  background: var(--bg-card);
+  border: 1px solid #334155;
+  border-radius: 30px;
+  color: white;
+  outline: none;
+  margin-bottom: 15px;
+  transition: 0.3s;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+.contact-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+}
+
+.contact-submit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 14px 30px;
+  background: var(--primary);
+  color: var(--bg-darker);
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.contact-submit-btn.success {
+  background: #10b981;
+}
+
+.contact-submit-btn:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(56, 189, 248, 0.3);
+}
+
+.form-success-message {
+  margin-top: 15px;
+  color: #10b981;
+  font-size: 0.9rem;
+  font-weight: 600;
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.spinner-small {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(2, 6, 23, 0.2);
+  border-top-color: var(--bg-darker);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* Footer Section */
 footer {
   text-align: center;
@@ -407,8 +483,9 @@ footer {
   }
   
   .hero-img { 
-    align-self: center; 
-    margin-top: -30px;
+    align-self: flex-start; 
+    margin-top: -80px;
+   
   }
 
   .hero-img img {
@@ -421,5 +498,10 @@ footer {
     bottom: -25px;
     left: 50%;
     transform: translateX(-50%);
+  }
+
+  .contact-input {
+    padding: 14px 20px;
+    font-size: 16px; /* Prevents auto-zoom on iOS */
   }
 }

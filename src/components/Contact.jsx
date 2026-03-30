@@ -35,42 +35,16 @@ const Contact = () => {
             </div>
 
             {/* Keeping New Feature Interactivity with Elite Polish */}
-            <form onSubmit={handleFormSubmit} style={{ marginTop: '40px', maxWidth: '500px', margin: '40px auto 0 auto', position: 'relative' }}>
+            <form onSubmit={handleFormSubmit} className="contact-form">
                 <input 
                     type="text" 
                     placeholder="Drop a quick greeting..."
                     required
-                    style={{ 
-                        width: '100%', 
-                        padding: '16px 24px', 
-                        background: '#1e293b', 
-                        border: '1px solid #334155', 
-                        borderRadius: '30px',
-                        color: 'white',
-                        outline: 'none',
-                        marginBottom: '15px',
-                        transition: '0.3s'
-                    }}
                     className="contact-input"
                 />
                 <button 
                    disabled={status !== 'idle'}
                    className={`contact-submit-btn ${status === 'sent' ? 'success' : ''}`}
-                   style={{ 
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        gap: '10px',
-                        width: '100%',
-                        padding: '14px 30px', 
-                        background: status === 'sent' ? '#10b981' : '#38bdf8',
-                        color: '#020617',
-                        border: 'none',
-                        borderRadius: '30px',
-                        fontWeight: 'bold',
-                        cursor: 'pointer',
-                        transition: 'all 0.4s ease'
-                    }}
                 >
                     {status === 'idle' && <><Send size={18} /> Send Quick Greeting</>}
                     {status === 'sending' && <div className="spinner-small" />}
@@ -78,38 +52,11 @@ const Contact = () => {
                 </button>
 
                 {status === 'sent' && (
-                  <div style={{ 
-                    marginTop: '15px', 
-                    color: '#10b981', 
-                    fontSize: '0.9rem', 
-                    fontWeight: '600',
-                    animation: 'fadeInUp 0.5s ease-out'
-                  }}>
+                  <div className="form-success-message">
                     Thanks for reaching out! I'll get back to you soon.
                   </div>
                 )}
             </form>
-
-            <style dangerouslySetInnerHTML={{ __html: `
-              .contact-input:focus {
-                border-color: #38bdf8;
-                box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
-              }
-              .contact-submit-btn:hover:not(:disabled) {
-                transform: translateY(-3px);
-                box-shadow: 0 10px 20px rgba(56, 189, 248, 0.3);
-              }
-              .spinner-small {
-                width: 20px;
-                height: 20px;
-                border: 2px solid rgba(2, 6, 23, 0.2);
-                border-top-color: #020617;
-                border-radius: 50%;
-                animation: spin 0.8s linear infinite;
-              }
-              @keyframes spin { to { transform: rotate(360deg); } }
-              @keyframes fadeInUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-            `}} />
         </section>
     );
 };
